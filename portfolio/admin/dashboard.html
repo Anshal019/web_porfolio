@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <title>Command Center</title>
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <script src="../assets/js/admin-config.js" defer></script>
+    <script src="../assets/js/admin.js" defer></script>
+</head>
+<body class="admin-body">
+    <div class="noise-overlay"></div>
+
+    <div class="dashboard-layout">
+        <aside class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>CTRL_PANEL</h2>
+            </div>
+            <ul class="admin-nav">
+                <li><button class="nav-tab active" data-target="overview">Overview</button></li>
+                <li><button class="nav-tab" data-target="achievements">Achievements</button></li>
+                <li><button class="nav-tab" data-target="services">Services</button></li>
+                <li><button class="nav-tab" data-target="settings">Settings</button></li>
+                <li><button class="nav-tab logout-btn">Disconnect</button></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <!-- Header bar for mobile toggle -->
+            <div class="admin-topbar">
+                <button id="sidebar-toggle" class="btn">☰ Menu</button>
+                <div class="session-timer">Session ends in: <span id="time-left">30:00</span></div>
+            </div>
+
+            <!-- Views -->
+            <div id="view-overview" class="admin-view active">
+                <h1 class="page-title">System Status</h1>
+                <div class="stats-grid">
+                    <div class="admin-stat-card">
+                        <h3>Data Sync</h3>
+                        <p>OK - All Local</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements View -->
+            <div id="view-achievements" class="admin-view">
+                <div class="view-header">
+                    <h1 class="page-title">Achievements DB</h1>
+                    <button class="btn btn-cyan" id="btn-add-ach">📝 Add New</button>
+                </div>
+                
+                <div class="data-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>Title</th><th>Year</th><th>Category</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody id="admin-achievements-list">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Services View -->
+            <div id="view-services" class="admin-view">
+                <div class="view-header">
+                    <h1 class="page-title">Services DB</h1>
+                    <button class="btn btn-cyan" id="btn-add-srv">📝 Add Service</button>
+                </div>
+                <div class="data-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>Title</th><th>Price</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody id="admin-services-list">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div id="view-settings" class="admin-view">
+                <h1 class="page-title">Config</h1>
+                <div class="form-container">
+                    <p>To change passwords, edit <code>assets/js/admin-config.js</code> directly securely.</p>
+                    <br>
+                    <button class="btn btn-submit" id="btn-export-data">Export DB Backup</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modal for Forms -->
+    <div id="admin-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modal-title" class="form-title">Edit Record</h2>
+            <form id="modal-form">
+                <!-- Dynamically populated fields -->
+            </form>
+            <div class="modal-actions">
+                <button class="btn btn-submit" id="modal-save">Save Data</button>
+                <button class="btn" id="modal-cancel">Cancel</button>
+            </div>
+            <div id="modal-error" class="form-status status-error"></div>
+        </div>
+    </div>
+</body>
+</html>

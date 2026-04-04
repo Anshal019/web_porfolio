@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <title>Achievements & Projects</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/page2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="assets/js/global.js" defer></script>
+    <script src="assets/js/page2.js" defer></script>
+</head>
+<body>
+    <!-- Background Effects -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+
+    <div class="custom-cursor"></div>
+    <div class="scroll-progress"></div>
+
+    <!-- 3D Element background specific for page 2 -->
+    <canvas id="cubes-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo"><span>C</span>_EXPERT</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="achievements.html" class="active">Achievements</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn">Book Consult</a>
+        <button class="hamburger">☰</button>
+    </nav>
+
+    <main class="page-container">
+        <!-- Achievements Section -->
+        <section class="section-block fade-in-section">
+            <h1 class="page-title"><span class="title-draw">Achievements & Awards</span></h1>
+            <p class="page-subtitle">Recognitions in the infosec community.</p>
+            
+            <div class="achievements-grid" id="achievements-container">
+                <!-- Loaded from JS -->
+                <div class="loader-placeholder">Loading achievements...</div>
+            </div>
+        </section>
+
+        <!-- Research Papers Section -->
+        <section class="section-block fade-in-section">
+            <h2 class="section-heading text-cyan">Research & Publications</h2>
+            <div class="horizontal-scroll" id="research-container">
+                <!-- Loaded from JS -->
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section-block fade-in-section has-timeline">
+            <h2 class="section-heading text-green">Tools & Projects</h2>
+            <div class="timeline"></div>
+            <div class="projects-grid" id="projects-container">
+                <!-- Loaded from JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-glitch">SYS_HALT: END OF THREAD // &copy; 2024 JOHN DOE</div>
+    </footer>
+</body>
+</html>

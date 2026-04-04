@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <title>Secure Entry Protocol</title>
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+    <script src="../assets/js/admin-config.js" defer></script>
+    <script src="../assets/js/admin.js" defer></script>
+</head>
+<body class="admin-body">
+    <div class="noise-overlay"></div>
+    <div class="scanlines"></div>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1 class="logo"><span>C</span>_EXPERT</h1>
+            <p>Admin Authorization</p>
+        </div>
+        
+        <form id="admin-login-form" novalidate>
+            <input type="hidden" id="csrf-token">
+            
+            <div class="form-group">
+                <label for="username">Identifier</label>
+                <input type="text" id="username" required autocomplete="off">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Passphrase</label>
+                <input type="password" id="password" required autocomplete="new-password">
+            </div>
+
+            <button type="submit" class="btn btn-submit" id="auth-btn">Authorize</button>
+            
+            <div id="login-error" class="form-status status-error"></div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <title>Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/page1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="assets/js/global.js" defer></script>
+    <script src="assets/js/page1.js" defer></script>
+</head>
+<body>
+    <!-- Background Effects -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="custom-cursor"></div>
+    <div class="scroll-progress"></div>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-lock">🔒</div>
+        <div class="loader-bar-bg">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo"><span>C</span>_EXPERT</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn">Book Consult</a>
+        <button class="hamburger">☰</button>
+    </nav>
+
+    <!-- Page 1 Hero Section -->
+    <section class="hero">
+        <canvas id="dna-canvas"></canvas>
+        <div class="hero-left">
+            <h1 class="hero-name glitch" data-text="JOHN DOE">JOHN DOE</h1>
+            <h2 class="hero-subtitle">Cybersecurity Expert</h2>
+            <div class="hero-tagline">> Securing the future, one node at a time_</div>
+            <div class="hero-cta">
+                <a href="achievements.html" class="btn">Explore My Work</a>
+                <a href="contact.html" class="btn btn-cyan">Hire Me</a>
+            </div>
+        </div>
+        <div class="hero-right fade-in-section">
+            <canvas id="globe-canvas"></canvas>
+            <div class="photo-placeholder">
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+                <!-- <img> Put your photo here -->
+                <div class="photo-label">[ YOUR PHOTO HERE ]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section fade-in-section">
+        <div class="about-text">
+            <h2 class="section-heading text-green">System.Information</h2>
+            <p>I am an elite cybersecurity researcher with a passion for offensive security, reverse engineering, and finding zero-days in enterprise architectures. My mission is to identify critical vulnerabilities before threat actors exploit them.</p>
+            <ul class="about-bullets">
+                <li><i class="icon">🛡️</i> Keep Safe Exploring The Internet</li>
+                <li><i class="icon">🏢</i> Secure Your Business</li>
+                <li><i class="icon">⚡</i> Connect To Ultra-Fast Private Servers</li>
+            </ul>
+        </div>
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number" data-target="10" data-plus="true">0</div>
+                <div class="stat-label">Years Exp</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" data-target="50" data-plus="true">0</div>
+                <div class="stat-label">CVEs Found</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" data-target="200" data-plus="true">0</div>
+                <div class="stat-label">Projects Done</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" data-target="150" data-plus="true">0</div>
+                <div class="stat-label">Clients Protected</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section fade-in-section">
+        <h2 class="section-heading text-cyan">SkillTree.Execute()</h2>
+        <div class="skill-item">
+            <div class="skill-info"><span>Network Security</span><span>95%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Penetration Testing</span><span>90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Malware Analysis</span><span>85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Cryptography</span><span>80%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-glitch">SYS_HALT: END OF THREAD // &copy; 2024 JOHN DOE</div>
+    </footer>
+</body>
+</html>

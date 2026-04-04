@@ -1,0 +1,306 @@
+/* assets/css/page2.css */
+.page-container {
+  padding: 120px 10% 50px;
+  position: relative;
+  z-index: 10;
+}
+
+.page-title {
+  font-size: 3rem;
+  color: var(--accent-green);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.page-subtitle {
+  font-family: var(--font-accent);
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.title-draw {
+  position: relative;
+  display: inline-block;
+}
+.title-draw::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  animation: drawLine 1s ease forwards;
+}
+
+@keyframes drawLine {
+  to { width: 100%; }
+}
+
+.section-block {
+  margin-bottom: 80px;
+}
+
+/* Flip Cards for Achievements */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-neon);
+}
+
+.flip-card-front {
+  background: var(--bg-card);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.flip-card-front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 2px;
+  background: linear-gradient(45deg, transparent, var(--accent-green), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: borderRotate 4s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes borderRotate {
+  100% { filter: hue-rotate(360deg); }
+}
+
+.flip-card-front h3 {
+  color: var(--accent-green);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+.badge-year {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--accent-green);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-family: var(--font-accent);
+  font-weight: bold;
+  border: 1px solid var(--accent-green);
+}
+
+.flip-card-back {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transform: rotateY(180deg);
+  border-color: var(--accent-cyan);
+}
+.flip-card-back p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+.flip-card-back a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-cyan);
+}
+.flip-card-back a:hover {
+  text-shadow: 0 0 8px var(--accent-cyan);
+}
+
+/* Horizontal Scroll for Research */
+.horizontal-scroll {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+}
+.horizontal-scroll::-webkit-scrollbar { height: 6px; }
+
+.research-card {
+  min-width: 350px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-neon);
+  padding: 25px;
+  border-radius: 8px;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+/* Handled by JS tilt */
+
+.research-title {
+  color: var(--accent-cyan);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.research-meta {
+  font-family: var(--font-accent);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+.research-abstract {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Projects Timeline Layout */
+.has-timeline {
+  position: relative;
+}
+.timeline {
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-green);
+  box-shadow: 0 0 10px var(--accent-green);
+  z-index: 1;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-left: 60px; /* space for timeline */
+}
+
+.project-card {
+  background: rgba(7, 24, 40, 0.7);
+  border: 1px solid var(--border-neon);
+  border-left: 4px solid var(--accent-green);
+  padding: 30px;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.project-card:hover {
+  background: rgba(7, 24, 40, 0.9);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+  transform: translateX(10px);
+}
+
+.project-node {
+  position: absolute;
+  left: -48px; /* Alignment with timeline */
+  top: 35px;
+  width: 14px;
+  height: 14px;
+  background: var(--bg-primary);
+  border: 3px solid var(--accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-green);
+  z-index: 2;
+  animation: pulseNode 2s infinite;
+}
+
+@keyframes pulseNode {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.project-title {
+  color: var(--text-primary);
+  font-size: 1.6rem;
+}
+.project-status {
+  font-family: var(--font-accent);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  border: 1px solid var(--text-muted);
+}
+.status-completed { color: #00FF88; border-color: #00FF88; }
+.status-active { color: #00D4FF; border-color: #00D4FF; }
+
+.project-tech {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.tech-tag {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent-cyan);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+}
+
+.project-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+.project-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font-accent);
+  transition: color 0.3s;
+}
+.project-links a:hover {
+  color: var(--accent-green);
+}
+
+/* 3D Cubes Canvas */
+#cubes-canvas {
+  position: fixed;
+  top: 0; right: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: 100px 5% 50px; }
+  .timeline { display: none; }
+  .projects-grid { margin-left: 0; }
+  .project-node { display: none; }
+  .horizontal-scroll { flex-direction: column; overflow: visible; }
+  .research-card { min-width: 100%; }
+}

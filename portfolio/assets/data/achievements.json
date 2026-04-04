@@ -1,0 +1,42 @@
+{
+  "achievements": [
+    {
+      "id": "1",
+      "title": "DEF CON Black Badge",
+      "year": "2023",
+      "category": "Award",
+      "description": "Awarded for discovering a critical zero-day vulnerability.",
+      "link": "#"
+    },
+    {
+      "id": "2",
+      "title": "Top 100 Bug Bounty",
+      "year": "2022",
+      "category": "Award",
+      "description": "Ranked top 100 out of 500k hackers globally.",
+      "link": "#"
+    }
+  ],
+  "research": [
+    {
+      "id": "1",
+      "title": "Modern Sandbox Escapes",
+      "authors": "Jane Doe, John Smith",
+      "date": "Oct 2023",
+      "platform": "IEEE Security",
+      "abstract": "An in-depth look at emerging vulnerabilities in containerized environments...",
+      "link": "#"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "name": "SecurOS",
+      "description": "A custom hardened Linux kernel built for extreme privacy.",
+      "stack": ["C", "Bash", "Linux"],
+      "github": "#",
+      "demo": "#",
+      "status": "Completed"
+    }
+  ]
+}

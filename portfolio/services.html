@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <title>Services & Expertise</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/page4.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="assets/js/global.js" defer></script>
+    <script src="assets/js/page4.js" defer></script>
+</head>
+<body>
+    <!-- Background Effects -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
+
+    <div class="custom-cursor"></div>
+    <div class="scroll-progress"></div>
+
+    <!-- 3D Circuit Background -->
+    <canvas id="circuit-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo"><span>C</span>_EXPERT</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn">Book Consult</a>
+        <button class="hamburger">☰</button>
+    </nav>
+
+    <main class="page-container">
+        
+        <!-- Services Grid -->
+        <section class="section-block fade-in-section">
+            <h1 class="page-title"><span class="title-draw">Security Services</span></h1>
+            <p class="page-subtitle">Offensive strategies for defensive advantages.</p>
+            
+            <div class="services-grid" id="services-container">
+                <!-- Loaded from JS -->
+                <div class="loader-placeholder">Loading services...</div>
+            </div>
+        </section>
+
+        <!-- Work / Portfolio Filter Section -->
+        <section class="section-block fade-in-section">
+            <h2 class="section-heading text-cyan">Field Operations</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Web Security">Web App</button>
+                <button class="filter-btn" data-filter="Network">Network</button>
+                <button class="filter-btn" data-filter="Malware">Malware</button>
+            </div>
+            
+            <div class="portfolio-grid" id="portfolio-container">
+                <!-- Loaded from JS -->
+            </div>
+        </section>
+
+        <!-- Certifications & Expertise -->
+        <section class="section-block expertise-section fade-in-section">
+            <h2 class="section-heading text-green">Proof of Capability</h2>
+            
+            <div class="expertise-split">
+                <!-- 3D Network Graph placeholder Container -->
+                <div class="network-vis">
+                    <canvas id="network-canvas"></canvas>
+                </div>
+                
+                <div class="certifications-list" id="certs-container">
+                    <!-- Loaded from JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section fade-in-section">
+            <h2>Ready to Secure Your Digital World?</h2>
+            <p>Vulnerabilities don't wait for business hours. Neither do I.</p>
+            <a href="contact.html" class="btn btn-large">Initiate Assessment Request</a>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="footer-glitch">SYS_HALT: END OF THREAD // &copy; 2024 JOHN DOE</div>
+    </footer>
+</body>
+</html>
