@@ -1,7 +1,15 @@
 /* assets/css/admin.css */
 
-/* Enable default cursor in admin panel */
-* { cursor: auto !important; }
+/* Show default cursor and hide custom cursor in admin panel */
+* {
+  cursor: default;
+}
+a, button, .btn, .nav-tab, .action-btn, input[type="submit"], input[type="button"] {
+  cursor: pointer !important;
+}
+.custom-cursor {
+  display: none !important;
+}
 
 .admin-body {
   background: var(--bg-primary);

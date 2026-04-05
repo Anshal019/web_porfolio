@@ -32,27 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Hard lockout check removed
 
-            // Using bcrypt to compare
-            // Note: In real app, this happens on server. Here we do it client side for the demo.
-            if (user === ADMIN_CONFIG.USERNAME && typeof bcrypt !== 'undefined') {
-                bcrypt.compare(pass, ADMIN_CONFIG.PASSWORD_HASH, (err, res) => {
-                    if (res) {
-                        // Success
-                        localStorage.removeItem('admin_attempts');
-                        localStorage.removeItem('admin_lockout');
-                        
-                        // Set session info
-                        const sessionData = {
-                            token: btoa(user + Date.now()),
-                            expires: Date.now() + ADMIN_CONFIG.SESSION_TIMEOUT_MS
-                        };
-                        sessionStorage.setItem(AUTH_KEY, JSON.stringify(sessionData));
-                        
-                        window.location.href = 'dashboard.html';
-                    } else {
-                        handleFailedLogin(errDiv);
-                    }
-                });
+            // Accept any username and password
+            if (user && pass) {
+                // Success
+                localStorage.removeItem('admin_attempts');
+                localStorage.removeItem('admin_lockout');
+                
+                // Set session info
+                const sessionData = {
+                    token: btoa(user + Date.now()),
+                    expires: Date.now() + ADMIN_CONFIG.SESSION_TIMEOUT_MS
+                };
+                sessionStorage.setItem(AUTH_KEY, JSON.stringify(sessionData));
+                
+                window.location.href = 'dashboard.html';
             } else {
                 handleFailedLogin(errDiv);
             }
@@ -65,40 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- DASHBOARD LOGIC ---
     if (document.querySelector('.dashboard-layout')) {
-        // Enforce Auth
-        const sessionStore = sessionStorage.getItem(AUTH_KEY);
-        if (!sessionStore) {
-            window.location.replace('secure-entry.html');
-            return;
-        }
-        
-        try {
-            const sessionData = JSON.parse(sessionStore);
-            if (Date.now() > sessionData.expires) {
-                sessionStorage.removeItem(AUTH_KEY);
-                window.location.replace('secure-entry.html');
-                return;
-            }
-        } catch(e) {
-            sessionStorage.removeItem(AUTH_KEY);
-            window.location.replace('secure-entry.html');
-            return;
-        }
-
-        // Active Timer
+        // Enforce Auth (Removed)
+        // Active Timer (Removed)
         setInterval(() => {
-            const sd = JSON.parse(sessionStorage.getItem(AUTH_KEY) || '{}');
-            if (sd.expires) {
-                const diff = sd.expires - Date.now();
-                if (diff <= 0) {
-                    sessionStorage.removeItem(AUTH_KEY);
-                    window.location.replace('secure-entry.html');
-                } else {
-                    const m = Math.floor(diff / 60000);
-                    const s = Math.floor((diff % 60000)/1000);
-                    document.getElementById('time-left').textContent = `${m}:${s.toString().padStart(2,'0')}`;
-                }
-            }
+            const timeEl = document.getElementById('time-left');
+            if (timeEl) timeEl.textContent = 'Unlimited';
         }, 1000);
 
         // Sidebar Toggle Mobile

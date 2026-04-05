@@ -2,16 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
 
 :root {
-  --bg-primary: #020C18;
-  --bg-secondary: #040F1F;
-  --bg-card: #071828;
-  --accent-green: #00FF88;
-  --accent-cyan: #00D4FF;
-  --accent-glow: rgba(0, 255, 136, 0.15);
-  --text-primary: #E0F4FF;
-  --text-muted: #5A8FAA;
-  --border-neon: rgba(0, 212, 255, 0.3);
-  --danger: #FF3860;
+  --bg-primary: #080000;
+  --bg-secondary: #120202;
+  --bg-card: #1C0303;
+  --accent-green: #FF003C;
+  --accent-cyan: #FF4D4D;
+  --accent-glow: rgba(255, 0, 60, 0.15);
+  --text-primary: #FFEBEB;
+  --text-muted: #AA5A5A;
+  --border-neon: rgba(255, 77, 77, 0.3);
+  --danger: #FF003C;
   
   --font-display: 'Orbitron', sans-serif;
   --font-body: 'Share Tech Mono', monospace;
@@ -55,7 +55,7 @@ body {
     to bottom,
     transparent,
     transparent 2px,
-    rgba(0, 255, 136, 0.03) 3px,
+    rgba(255, 0, 60, 0.03) 3px,
     transparent 3px
   );
   z-index: -1;
@@ -81,8 +81,8 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: 
-    linear-gradient(to right, rgba(0, 212, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 77, 77, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 77, 77, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: -2;
   pointer-events: none;
@@ -118,7 +118,7 @@ body {
 .custom-cursor.hover {
   width: 40px;
   height: 40px;
-  background-color: rgba(0, 255, 136, 0.1);
+  background-color: rgba(255, 0, 60, 0.1);
 }
 
 /* Scroll Progress */
@@ -169,7 +169,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  background: rgba(2, 12, 24, 0.8);
+  background: rgba(8, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-neon);
 }
@@ -285,7 +285,7 @@ nav {
   background: var(--accent-cyan);
 }
 .btn-cyan:hover {
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
 }
 
 /* Animations */
@@ -394,7 +394,7 @@ input, textarea, select {
 
 input:focus, textarea:focus, select:focus {
   border-color: var(--accent-cyan);
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.2);
 }
 
 /* Responsive */
