@@ -2,19 +2,28 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Fetch Data
-    fetch('assets/data/achievements.json')
-        .then(response => response.json())
-        .then(data => {
-            renderAchievements(data.achievements);
-            renderResearch(data.research);
-            renderProjects(data.projects);
-            initTiltEffect(); // Must run after elements are rendered
-        })
-        .catch(err => {
-            console.error('Failed to load data', err);
-            document.getElementById('achievements-container').innerHTML = '<p class="text-danger">Error loading data.</p>';
-        });
+    // Fetch Data / Sync Local DB
+    async function initDBAndRender() {
+        if (!localStorage.getItem('db_achievements')) {
+            try {
+                const res = await fetch('assets/data/achievements.json');
+                const data = await res.json();
+                localStorage.setItem('db_achievements', JSON.stringify(data.achievements || []));
+                localStorage.setItem('db_research', JSON.stringify(data.research || []));
+                localStorage.setItem('db_projects', JSON.stringify(data.projects || []));
+            } catch(e) { console.error('Fetch error fallback.') }
+        }
+
+        const achievements = JSON.parse(localStorage.getItem('db_achievements') || '[]');
+        const research = JSON.parse(localStorage.getItem('db_research') || '[]');
+        const projects = JSON.parse(localStorage.getItem('db_projects') || '[]');
+
+        renderAchievements(achievements);
+        renderResearch(research);
+        renderProjects(projects);
+        initTiltEffect(); 
+    }
+    initDBAndRender();
 
     function renderAchievements(items) {
         const container = document.getElementById('achievements-container');

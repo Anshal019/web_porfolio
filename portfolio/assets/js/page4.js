@@ -4,21 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let allPortfolio = [];
 
-    // Fetch Data
-    fetch('assets/data/services.json')
-        .then(response => response.json())
-        .then(data => {
-            renderServices(data.services);
-            allPortfolio = data.portfolio;
-            renderPortfolio(allPortfolio);
-            renderCerts(data.certifications);
-            initTiltHover();
-            setupFilters();
-        })
-        .catch(err => {
-            console.error('Failed to load data', err);
-            document.getElementById('services-container').innerHTML = '<p class="text-danger">Error loading data.</p>';
-        });
+    // Fetch Data / Sync Local DB
+    async function initDBAndRender() {
+        if (!localStorage.getItem('db_services')) {
+            try {
+                const res = await fetch('assets/data/services.json');
+                const data = await res.json();
+                localStorage.setItem('db_services', JSON.stringify(data.services || []));
+                localStorage.setItem('db_portfolio', JSON.stringify(data.portfolio || []));
+                localStorage.setItem('db_certifications', JSON.stringify(data.certifications || []));
+            } catch (e) { console.error('Fetch error') }
+        }
+
+        const services = JSON.parse(localStorage.getItem('db_services') || '[]');
+        allPortfolio = JSON.parse(localStorage.getItem('db_portfolio') || '[]');
+        const certs = JSON.parse(localStorage.getItem('db_certifications') || '[]');
+
+        renderServices(services);
+        renderPortfolio(allPortfolio);
+        renderCerts(certs);
+        initTiltHover();
+        setupFilters();
+    }
+    initDBAndRender();
 
     function renderServices(items) {
         const container = document.getElementById('services-container');
